@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" href="/public/favicon.ico">
+        <title>pi-pattern-projector</title>
+        <link rel="stylesheet" href="/assets/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="center">
+                <h2>Pi Pattern Projector</h2>
+                <h3>Project a Pattern</h3>
+                <select name="patterns" id="pattern-list">
+                    <option>Select One</option>
+                </select>
+
+                <h3>Upload a New Pattern</h3>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" id="file-upload" name="file">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+
+        <script src="/assets/app.js"></script>
+    </body>
+</html>
