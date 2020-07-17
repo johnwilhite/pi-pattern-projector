@@ -12,6 +12,6 @@ module.exports = {
 
         // TODO: convert pdf to png
         // TODO: check if file already exists
-        file.mv('./app/uploaded-patterns/' + fileName);
+        file.mv('./uploaded-patterns/' + fileName);
     }
 }

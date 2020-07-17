@@ -27,4 +27,10 @@ router.get('/files', (req, res) => {
     res.json(fileList);
 });
 
+router.get('/project/:file', (req, res) => {
+    // TODO: display file
+    console.log(`project ${req.params.file}`);
+    res.send('Projecting');
+});
+
 module.exports = router;
