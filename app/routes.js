@@ -15,7 +15,10 @@ router.get('/', (req, res) => {
 
 router.post('/upload', (req, res) => {
     let file = req.files.file;
-    file.mv('./uploaded-patterns/' + file.name);
+
+    // TODO: throw error if not pdf
+
+    fileService.saveUpload(req.body, file);
     res.send('Uploaded');
 });
 
