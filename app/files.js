@@ -2,7 +2,7 @@ const fs = require('fs');
 
 module.exports = {
     getList() {
-        return fs.readdirSync('./uploaded-patterns');
+        return fs.readdirSync('./uploaded-patterns').sort();
     },
     saveUpload(params, file) {
         let ext = file.name.substr(file.name.lastIndexOf('.') + 1);

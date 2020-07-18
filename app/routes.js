@@ -3,10 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 const fileService = require('./files');
+const displayService = require('./display');
 
 router.use(express.json());
-
-// use express to serve static files
 router.use(express.static('public'));
 
 router.get('/', (req, res) => {
@@ -19,7 +18,6 @@ router.post('/upload', (req, res) => {
     // TODO: throw error if not pdf
 
     fileService.saveUpload(req.body, file);
-    res.send('Uploaded');
 });
 
 router.get('/files', (req, res) => {
@@ -27,10 +25,18 @@ router.get('/files', (req, res) => {
     res.json(fileList);
 });
 
-router.get('/project/:file', (req, res) => {
-    // TODO: display file
-    console.log(`project ${req.params.file}`);
-    res.send('Projecting');
+router.get('/display/:file', (req, res) => {
+    displayService.display(req.params.file);
+    res.sendFile(path.resolve('public/project-pattern.html'));
+});
+
+router.get('/display/zoom/:amount', (req, res) => {
+    level = displayService.zoom(req.params.amount);
+    res.json({level});
+});
+
+router.get('/display/close', (req, res) => {
+    displayService.close();
 });
 
 module.exports = router;

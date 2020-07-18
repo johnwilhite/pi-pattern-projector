@@ -28,10 +28,14 @@ body {
     padding-bottom: 1.5rem;
 }
 
-input[type=text], select {
+.text-centered {
+    text-align: center;
+}
+
+form input[type=text], input[type=number], select {
     width: 100%;
     padding: .5rem .5rem;
-    margin: .4rem 0 1rem 0;
+    margin: .5rem 0 1rem 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -51,4 +55,49 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #0d3b3b;
+}
+
+button, a.button {
+    background-color: teal;
+    color: white;
+    padding: 1rem 2rem;
+    margin: .5rem 0;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button#close {
+    width: 100%;
+    background-color: white;
+    color: #0d3b3b;
+    border: 2px solid teal;
+}
+
+.zoom-level {
+    margin: auto;
+    width: 65%;
+}
+
+.zoom-level input[type=number] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 4px 0 0 4px;
+}
+
+.zoom-level button.go {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 0 .5rem .5rem 0;
 }

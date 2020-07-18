@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" href="/public/favicon.ico">
+        <title>pi-pattern-projector</title>
+        <link rel="stylesheet" href="/assets/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="center text-centered">
+                <h2>Projecting Pattern</h2>
+
+                <h3 id="pattern-name"></h3>
+                <span id="current-zoom-level">100</span>%
+                <div class="zoom-level">
+                    <button class="zoom" id="zoom-in"><strong>+</strong> Zoom In</button>
+                    <button class="zoom" id="zoom-out"><strong>-</strong> Zoom Out</button>
+                </div>
+
+                OR
+
+                <div class="zoom-level">
+                    <input type="number" id="zoom-amount" placeholder="Enter a zoom level" required>
+                    <button id="zoom" class="go">Go</button>
+                </div>
+
+                <button id="close">Close Pattern</a>
+            </div>
+        </div>
+
+        <script src="/assets/project-pattern.js"></script>
+    </body>
+</html>

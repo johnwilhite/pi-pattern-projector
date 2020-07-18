@@ -17,5 +17,5 @@ function updateSelect(files) {
 
 select.addEventListener('change', function(event) {
     let file = event.target.value;
-    fetch('/project/' + file);
+    window.location.replace('/display/' + file);
 });
