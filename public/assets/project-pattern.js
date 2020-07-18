@@ -24,7 +24,9 @@ document.getElementById('close').addEventListener('click', function (event) {
 function updateZoomLevel(value) {
     fetch('/display/zoom/' + value)
         .then(response => response.json())
-        .then(data => function() {
-            document.getElementById('current-zoom-level').innerHTML = data.level;
-        });
+        .then(data => updateZoomLevelEl(data));
+}
+
+function updateZoomLevelEl(data) {
+    document.getElementById('current-zoom-level').innerHTML = data.level;
 }
