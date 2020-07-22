@@ -81,23 +81,27 @@ button#close {
 }
 
 .zoom-level input[type=number] {
-    padding: 10px;
-    font-size: 17px;
+    padding: 1rem;
+    font-size: 1rem;
     border: 1px solid grey;
     float: left;
     width: 80%;
     background: #f1f1f1;
-    border-radius: 4px 0 0 4px;
+    border-radius: .5rem 0 0 .5rem;
 }
 
 .zoom-level button.go {
     float: left;
     width: 20%;
-    padding: 10px;
+    padding: 1rem;
     color: white;
-    font-size: 17px;
+    font-size: 1rem;
     border: 1px solid grey;
     border-left: none;
     cursor: pointer;
     border-radius: 0 .5rem .5rem 0;
+}
+
+.pan h4, .zoom h4 {
+    margin-bottom: 0
 }

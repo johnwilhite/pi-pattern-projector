@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" href="/public/favicon.ico">
+        <title>pi-pattern-projector</title>
+        <link rel="stylesheet" href="/assets/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="center text-centered">
+                <h2>Projecting Pattern</h2>
+
+                <h3><%= filename %></h3>
+
+                <div class="pan">
+                    <h4>Pan</h4>
+                    <div>
+                        <button class="pan-button" onclick="pan('up')"><strong>▲</strong></button>
+                    </div>
+
+                    <div>
+                        <button class="pan-button" onclick="pan('left')">◄</button>
+                        <button class="pan-button" onclick="pan('right')">►</button>
+                    </div>
+
+                    <div>
+                        <button class="pan-button" onclick="pan('down')">▼</button>
+                    </div>
+                </div>
+
+                <div class="zoom">
+                    <h4>Zoom</h4>
+
+                    <div class="zoom-level">
+                        <button class="zoom-button" onclick="zoom('in')"><strong>+</strong> Zoom In</button>
+                        <button class="zoom-button" onclick="zoom('out')"><strong>-</strong> Zoom Out</button>
+                    </div>
+
+                    OR
+
+                    <div class="zoom-level">
+                        <input type="number" id="zoom-amount" placeholder="Enter a zoom level" required>
+                        <button id="zoom" class="go">Go</button>
+                    </div>
+                </div>
+
+                <button id="close" onclick="closeFile()">Close Pattern</a>
+            </div>
+        </div>
+
+        <script>
+
+            document.getElementById('zoom').addEventListener('click', function (event) {
+                let amount = document.getElementById('zoom-amount').value;
+                if (amount) { zoom(amount); }
+            });
+
+            function pan(direction) {
+                fetch('/display/pan/' + direction);
+            }
+
+            function zoom(amount) {
+                if (amount) { fetch('/display/zoom/' + amount); }
+            }
+
+            function closeFile() {
+                fetch('/display/close');
+                window.location.href = '/';
+            }
+        </script>
+    </body>
+</html>
