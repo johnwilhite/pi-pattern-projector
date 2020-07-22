@@ -17,7 +17,7 @@ post '/upload' do
         f.write(file.read)
     end
 
-    erb :show_image
+    redirect to("/display/#{filename}")
 end
 
 get '/files' do
@@ -32,21 +32,24 @@ get '/display/close' do
     # close file
 end
 
-get '/display/:file' do
-    erb :display, :locals => {:filename => params[:file]}
+get '/display/:file_name' do
+    spawn("fbgs -xxl ./uploaded-patterns/#{params[:file_name]}")
+    erb :display, :locals => {:filename => params[:file_name]}
 end
 
 get '/display/zoom/:amount' do
-    # if (amount === 'in') {
-    #     currentZoomLevel += 5;
-    # } else if (amount === 'out') {
-    #     currentZoomLevel -= 5;
-    # } else {
-    #     currentZoomLevel = parseFloat(amount);
-    # }
-    # zoom command
+    puts params[:amount]
+    if params[:amount] == 'in'
+        spawn('ydotool key plus')
+    elsif params[:amount] == 'out'
+        spawn('ydotool key minus')
+    else
+        spawn("ydotool type #{params[:amount]}s")
+    end
 end
 
 get '/display/pan/:direction' do
-    # pan command
+    if ['left', 'right', 'up', 'down'].include? params[:direction]
+        spawn("ydotool key #{params[:direction]}")
+    end
 end
